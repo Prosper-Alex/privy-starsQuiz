@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/css/index.css" />
+    <title>quiz app</title>
+  </head>
+  <body>
+    <nav>
+      <div class="navbar bg-base-100 shadow-sm">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h7"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="-1"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            >
+              <li><a href="/signup.html">login</a></li>
+              <li><a>Portfolio</a></li>
+              <li><a>About</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="navbar-center">
+          <a class="btn btn-ghost text-xl">daisyUI</a>
+        </div>
+        <div class="navbar-end">
+          <button class="btn btn-ghost btn-circle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </button>
+          <button class="btn btn-ghost btn-circle">
+            <div class="indicator">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                />
+              </svg>
+              <span class="badge badge-xs badge-primary indicator-item"></span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <section class="hero min-h-[80vh] bg-base-200">
+      <div class="hero-content flex-col lg:flex-row-reverse gap-12">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/6165/6165871.png"
+          alt="Quiz illustration"
+          class="w-64 rounded-2xl shadow-xl"
+        />
+        <div>
+          <h1 class="text-4xl font-bold mb-4">
+            Welcome to <span class="italic">Privy Stars Quiz System</span>
+          </h1>
+          <p class="py-4 text-lg leading-relaxed">
+            A smart, engaging, and fun quiz platform developed for
+            <strong>Privy Stars School</strong> — where learning meets
+            excitement! This system empowers students, teachers, and
+            administrators to connect through quizzes, track progress, and
+            compete in a healthy, gamified environment.
+          </p>
+          <p class="text-base opacity-80 mb-4">
+            Built with modern web technology and designed for simplicity, Privy
+            Stars Quiz helps teachers test understanding effortlessly and
+            students to learn interactively.
+          </p>
+          <a href="#" class="btn btn-primary btn-wide">Get Started</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🧠 About Section -->
+    <section class="py-16 bg-base-100">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2 class="text-3xl font-bold mb-3">
+          What is the Privy Stars Quiz App?
+        </h2>
+        <p class="text-base opacity-80">
+          It’s a complete academic tool for the Privy Stars learning ecosystem.
+          Teachers can create quizzes, students can participate from anywhere,
+          and administrators can monitor progress — all in one platform.
+        </p>
+      </div>
+
+      <div class="grid gap-10 lg:grid-cols-3 max-w-6xl mx-auto px-6">
+        <!-- Home -->
+        <div
+          class="card bg-base-200 shadow-lg hover:shadow-xl transition rounded-2xl"
+        >
+          <div class="card-body">
+            <h3 class="card-title">🏠 Home Page</h3>
+            <p>
+              The entry point of the system. Welcomes users, introduces quiz
+              categories, and allows navigation to login, signup, or start a
+              quiz directly.
+            </p>
+          </div>
+        </div>
+
+        <!-- Login -->
+        <div
+          class="card bg-base-200 shadow-lg hover:shadow-xl transition rounded-2xl"
+        >
+          <div class="card-body">
+            <h3 class="card-title">🔐 Login Page</h3>
+            <p>
+              Provides secure access for students, teachers, and administrators.
+              Once logged in, users gain personalized dashboards and features
+              based on their roles.
+            </p>
+          </div>
+        </div>
+
+        <!-- Signup -->
+        <div
+          class="card bg-base-200 shadow-lg hover:shadow-xl transition rounded-2xl"
+        >
+          <div class="card-body">
+            <h3 class="card-title">🧾 Signup Page</h3>
+            <p>
+              New users can create their account, register as students or
+              teachers, and instantly start participating in quizzes within
+              their classes.
+            </p>
+          </div>
+        </div>
+
+        <!-- Quiz -->
+        <div
+          class="card bg-base-200 shadow-lg hover:shadow-xl transition rounded-2xl"
+        >
+          <div class="card-body">
+            <h3 class="card-title">🧠 Quiz Page</h3>
+            <p>
+              The heart of the platform. Students answer timed questions, see
+              progress bars, and receive immediate feedback. Every quiz is
+              designed to make learning fun!
+            </p>
+          </div>
+        </div>
+
+        <!-- Leaderboard -->
+        <div
+          class="card bg-base-200 shadow-lg hover:shadow-xl transition rounded-2xl"
+        >
+          <div class="card-body">
+            <h3 class="card-title">🏆 Leaderboard Page</h3>
+            <p>
+              Displays top-performing students with ranks, scores, and badges —
+              inspiring friendly competition and encouraging continuous
+              improvement.
+            </p>
+          </div>
+        </div>
+
+        <!-- Dashboard -->
+        <div
+          class="card bg-base-200 shadow-lg hover:shadow-xl transition rounded-2xl"
+        >
+          <div class="card-body">
+            <h3 class="card-title">📊 Dashboard Page</h3>
+            <p>
+              A control center for users. Students view their progress, teachers
+              analyze class performance, and admins manage overall activity and
+              engagement.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feedback -->
+        <div
+          class="card bg-base-200 shadow-lg hover:shadow-xl transition rounded-2xl"
+        >
+          <div class="card-body">
+            <h3 class="card-title">💬 Feedback Page</h3>
+            <p>
+              A space for students to share their learning experience and for
+              teachers to gather valuable insights to enhance future quizzes.
+            </p>
+          </div>
+        </div>
+
+        <!-- Profile -->
+        <div
+          class="card bg-base-200 shadow-lg hover:shadow-xl transition rounded-2xl"
+        >
+          <div class="card-body">
+            <h3 class="card-title">👤 Profile Page</h3>
+            <p>
+              Allows users to manage their personal information, see their
+              activity history, and customize their app preferences.
+            </p>
+          </div>
+        </div>
+
+        <!-- Settings -->
+        <div
+          class="card bg-base-200 shadow-lg hover:shadow-xl transition rounded-2xl"
+        >
+          <div class="card-body">
+            <h3 class="card-title">⚙️ Settings Page</h3>
+            <p>
+              Offers users control over theme, notifications, and sound
+              preferences — making the quiz experience more personal and
+              enjoyable.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✨ Why Privy Stars -->
+    <section class="py-16 bg-base-200">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2 class="text-3xl font-bold mb-3">Why Choose Privy Stars Quiz?</h2>
+        <p class="text-base opacity-80">
+          Because learning should be exciting! Privy Stars Quiz transforms
+          testing into an engaging adventure — blending education with play,
+          fun, and growth. Built by Privy Stars School for bright young minds
+          who love challenges.
+        </p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto px-6">
+        <div class="card bg-base-100 shadow-md rounded-2xl">
+          <div class="card-body items-center text-center">
+            <h3 class="card-title">🎯 Goal-Oriented</h3>
+            <p>
+              Designed to strengthen understanding through consistent and
+              enjoyable assessments.
+            </p>
+          </div>
+        </div>
+        <div class="card bg-base-100 shadow-md rounded-2xl">
+          <div class="card-body items-center text-center">
+            <h3 class="card-title">🕹️ Interactive</h3>
+            <p>
+              Animations, instant feedback, and fun sounds keep students fully
+              engaged.
+            </p>
+          </div>
+        </div>
+        <div class="card bg-base-100 shadow-md rounded-2xl">
+          <div class="card-body items-center text-center">
+            <h3 class="card-title">📚 Educational</h3>
+            <p>
+              Every quiz is crafted to boost knowledge, comprehension, and
+              critical thinking.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⚡ Footer -->
+    <footer class="footer p-10 bg-base-300 text-base-content mt-auto">
+      <aside>
+        <h3 class="font-bold text-lg">Privy Stars Quiz</h3>
+        <p>
+          A digital learning system by <strong>Privy Stars School</strong> —
+          empowering students to learn, play, and grow smarter every day.
+        </p>
+      </aside>
+      <nav>
+        <h6 class="footer-title">Explore</h6>
+        <a class="link link-hover">Home</a>
+        <a class="link link-hover">Quiz</a>
+        <a class="link link-hover">Leaderboard</a>
+        <a class="link link-hover">Dashboard</a>
+      </nav>
+      <nav>
+        <h6 class="footer-title">Support</h6>
+        <a class="link link-hover">Help Center</a>
+        <a class="link link-hover">Feedback</a>
+        <a class="link link-hover">Report an Issue</a>
+      </nav>
+      <nav>
+        <h6 class="footer-title">School</h6>
+        <a class="link link-hover">Privy Stars School</a>
+        <a class="link link-hover">Our Mission</a>
+        <a class="link link-hover">Contact Us</a>
+      </nav>
+    </footer>
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>
