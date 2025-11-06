@@ -88,6 +88,7 @@
 
 .gradient-text {
   background-image: var(--ultra-gradient-1);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
