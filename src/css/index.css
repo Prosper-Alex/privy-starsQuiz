@@ -190,32 +190,9 @@
   }
 }
 
-/* NAV STYLES*/
-.nav-link {
-  position: relative;
-  color: var(--fallback-bc, oklch(var(--bc) / 1));
-  transition: color 0.3s;
-}
-.nav-link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  height: 2px;
-  width: 0;
-  background: linear-gradient(to right, oklch(var(--p)), oklch(var(--a)));
-  transition: width 0.3s;
-}
-.nav-link:hover {
-  color: oklch(var(--a));
-}
-.nav-link:hover::after {
-  width: 100%;
-}
-
 /* Hide search under 480px */
 @media (max-width: 480px) {
-  .btn[aria-label='Search'] {
+  .btn[aria-label="Search"] {
     display: none !important;
   }
 }
@@ -232,4 +209,106 @@ main h2 {
 /* Mobile view */
 .h-scroll {
   @apply flex gap-4 px-2 pb-4 snap-x snap-mandatory overflow-x-auto;
+}
+/* Glass card base */
+.glass-nav {
+  background-color: rgba(12, 12, 15, 0.55); /* subtle dark glass fallback */
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 6px 30px rgba(8, 10, 15, 0.45);
+}
+
+/* Neon underglow */
+.neon-line {
+  height: 3px;
+  width: 100%;
+  border-radius: 8px;
+  filter: blur(6px);
+  opacity: 0.85;
+  transform-origin: left center;
+}
+
+/* spotlight hover */
+.spot {
+  position: relative;
+  overflow: hidden;
+}
+.spot::after {
+  content: "";
+  position: absolute;
+  inset: -40% -40%;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    rgba(255, 255, 255, 0.06),
+    transparent 18%
+  );
+  transform: scale(0.9);
+  transition: opacity 0.35s, transform 0.35s;
+  opacity: 0;
+  pointer-events: none;
+}
+.spot:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* active link glow */
+.nav-active {
+  color: #7c3aed; /* primary-ish - adjust with your theme */
+  position: relative;
+}
+.nav-active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(124, 58, 237, 0.9),
+    rgba(96, 165, 250, 0.8)
+  );
+  filter: blur(6px);
+  opacity: 0.95;
+}
+
+/* drawer slide animation */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-12px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.animate-slideInLeft {
+  animation: slideInFromLeft 300ms ease-out;
+}
+
+/* mobile bottom dock item */
+.dockItem {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s;
+  padding: 0.55rem;
+  border-radius: 12px;
+}
+.dockItem:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.12);
+}
+
+/* small responsive tweaks */
+@media (max-width: 768px) {
+  header#omniNav {
+    top: 8px;
+  }
+  .glass-nav {
+    padding-left: 14px;
+    padding-right: 14px;
+    width: calc(100% - 28px);
+  }
 }

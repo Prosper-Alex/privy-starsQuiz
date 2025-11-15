@@ -10,115 +10,207 @@
 
   <body class="min-h-screen flex flex-col bg-base-100 text-base-content">
     <!-- 🌐 Navbar -->
-    <!-- FLOATING NAVBAR -->
+    <!-- ===== Top Floating Nav ===== -->
     <header
-      class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full flex justify-center"
+      class="fixed top-4 left-1/2 -translate-x-1/2 w-full flex justify-center z-50"
     >
       <nav
-        class="bg-base-200/70 backdrop-blur-xl shadow-xl border border-base-300 rounded-2xl px-6 py-3 flex items-center gap-6 transition-all duration-300 hover:shadow-2xl max-w-3xl w-[90%]"
+        id="omniNav"
+        class="glass-nav max-w-7xl hidden px-6 py-3 rounded-full xl:gap-20 md:flex items-center justify-between relative"
       >
-        <!-- Logo -->
-        <a
-          href="/"
-          class="font-bold text-lg text-primary tracking-tight hover:text-accent transition-all"
+        <div
+          class="absolute inset-x-0 -bottom-2 hidden md:flex justify-center pointer-events-none"
         >
-          PSQ
+          <div class="neon-line w-[90%]"></div>
+        </div>
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3">
+          <div
+            class="w-10 h-10 rounded-lg bg-linear-to-br from-primary/20 to-accent/20 flex items-center justify-center ring-1 ring-primary/20"
+          >
+            <span class="text-primary font-extrabold">PSQ+</span>
+          </div>
+          <span class="hidden sm:inline font-semibold">Privy Stars Quiz</span>
         </a>
 
-        <!-- Center Links -->
-        <ul class="hidden md:flex items-center gap-8 mx-auto">
+        <!-- Desktop links -->
+        <ul class="hidden md:flex items-center gap-6">
           <li>
             <a
+              class="nav-link spot"
+              data-nav="categories"
               href="categories.html"
-              class="relative px-2 py-1 text-base-content font-medium group"
+              >Categories</a
             >
-              <span class="relative z-10">Categories</span>
-              <span
-                class="absolute inset-0 rounded-lg bg-primary/10 scale-0 group-hover:scale-100 transition-all duration-300"
-              ></span>
-            </a>
           </li>
-
           <li>
             <a
+              class="nav-link spot"
+              data-nav="leaderboard"
               href="leaderboard.html"
-              class="relative px-2 py-1 text-base-content font-medium group"
+              >Leaderboard</a
             >
-              <span class="relative z-10">Leaderboard</span>
-              <span
-                class="absolute inset-0 rounded-lg bg-primary/10 scale-0 group-hover:scale-100 transition-all duration-300"
-              ></span>
-            </a>
           </li>
-
           <li>
-            <a
-              href="profile.html"
-              class="relative px-2 py-1 text-base-content font-medium group"
+            <a class="nav-link spot" data-nav="dashboard" href="dashboard.html"
+              >Dashboard</a
             >
-              <span class="relative z-10">Profile</span>
-              <span
-                class="absolute inset-0 rounded-lg bg-primary/10 scale-0 group-hover:scale-100 transition-all duration-300"
-              ></span>
-            </a>
+          </li>
+          <li>
+            <a class="nav-link spot" data-nav="profile" href="profile.html"
+              >Profile</a
+            >
           </li>
         </ul>
 
-        <!-- Icons -->
-        <div class="flex items-center gap-3">
-          <button class="btn btn-circle btn-ghost hover:bg-base-300">
+        <!-- Right Icons -->
+        <div class="flex items-center gap-2">
+          <button class="btn btn-ghost btn-circle">
             <span class="iconify text-xl" data-icon="mdi:magnify"></span>
           </button>
-
-          <button class="btn btn-circle btn-ghost hover:bg-base-300">
+          <button class="btn btn-ghost btn-circle relative">
             <div class="indicator">
               <span class="iconify text-xl" data-icon="mdi:bell-outline"></span>
-              <span class="badge badge-primary badge-xs indicator-item"></span>
+              <span
+                class="badge badge-primary badge-xs indicator-item animate-ping"
+              ></span>
             </div>
           </button>
 
           <!-- Avatar -->
           <div class="dropdown dropdown-end hidden md:block">
-            <div tabindex="0" class="btn btn-ghost btn-circle avatar">
-              <div class="rounded-full w-10 border border-primary/30 shadow-sm">
-                <img src="https://api.dicebear.com/9.x/avataaars/svg" />
+            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+              <div class="w-10 rounded-full ring ring-primary ring-offset-2">
+                <img src="https://api.dicebear.com/9.x/adventurer/svg" />
               </div>
-            </div>
+            </label>
             <ul
               tabindex="0"
-              class="menu menu-sm dropdown-content mt-4 p-3 shadow-lg bg-base-300 rounded-xl border border-base-300"
+              class="menu menu-sm dropdown-content p-2 shadow-xl bg-base-300 rounded-xl"
             >
               <li><a href="profile.html">My Profile</a></li>
               <li><a href="settings.html">Settings</a></li>
-              <li><a class="text-error">Logout</a></li>
+              <li><a href="logout.html" class="text-error">Logout</a></li>
             </ul>
           </div>
-
-          <!-- Mobile Menu Button -->
-          <label
-            for="drawer-nav"
-            class="btn btn-ghost md:hidden btn-circle hover:bg-base-300"
-          >
-            <span class="iconify text-xl" data-icon="mdi:menu"></span>
-          </label>
         </div>
       </nav>
     </header>
 
-    <!-- MOBILE DRAWER NAV -->
-    <input type="checkbox" id="drawer-nav" class="drawer-toggle" />
-    <div class="drawer-side md:hidden">
-      <label for="drawer-nav" class="drawer-overlay"></label>
-      <ul class="menu p-6 min-h-full w-80 bg-base-200 border-r border-base-300">
-        <li><a href="/">Home</a></li>
-        <li><a href="categories.html">Categories</a></li>
-        <li><a href="leaderboard.html">Leaderboard</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="login.html">Login</a></li>
-      </ul>
+    <!-- ===== Drawer ===== -->
+    <div class="drawer z-50">
+      <input id="omniDrawer" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-content"></div>
+
+      <div class="drawer-side">
+        <label for="omniDrawer" class="drawer-overlay"></label>
+        <aside
+          class="w-80 bg-base-200 border-r p-6 min-h-full animate-slideInLeft"
+        >
+          <!-- Drawer header -->
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-3">
+              <div
+                class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center ring-1 ring-primary/20"
+              >
+                <span class="text-primary font-extrabold">PSQ+</span>
+              </div>
+              <div>
+                <div class="font-semibold">Privy Stars Quiz</div>
+                <div class="text-xs text-muted">Welcome back</div>
+              </div>
+            </div>
+            <label for="omniDrawer" class="btn btn-ghost btn-circle"
+              ><span class="iconify" data-icon="mdi:close"></span
+            ></label>
+          </div>
+
+          <!-- Drawer links -->
+          <nav class="space-y-1">
+            <a
+              class="drawer-link p-3 rounded-md flex items-center gap-3"
+              href="/"
+              data-nav="home"
+              ><span class="iconify" data-icon="mdi:home-outline"></span>Home</a
+            >
+            <a
+              class="drawer-link p-3 rounded-md flex items-center gap-3"
+              href="categories.html"
+              data-nav="categories"
+              ><span class="iconify" data-icon="mdi:apps"></span>Categories</a
+            >
+            <a
+              class="drawer-link p-3 rounded-md flex items-center gap-3"
+              href="leaderboard.html"
+              data-nav="leaderboard"
+              ><span class="iconify" data-icon="mdi:trophy-outline"></span
+              >Leaderboard</a
+            >
+            <a
+              class="drawer-link p-3 rounded-md flex items-center gap-3"
+              href="dashboard.html"
+              data-nav="dashboard"
+              ><span
+                class="iconify"
+                data-icon="mdi:view-dashboard-outline"
+              ></span
+              >Dashboard</a
+            >
+            <a
+              class="drawer-link p-3 rounded-md flex items-center gap-3"
+              href="profile.html"
+              data-nav="profile"
+              ><span
+                class="iconify"
+                data-icon="mdi:account-circle-outline"
+              ></span
+              >Profile</a
+            >
+          </nav>
+
+          <!-- Account -->
+          <div class="mt-6 pt-4 border-t">
+            <div class="text-xs text-muted mb-2">Account</div>
+            <a
+              class="flex items-center gap-3 p-3 rounded-md"
+              href="settings.html"
+              ><span class="iconify" data-icon="mdi:cog-outline"></span
+              >Settings</a
+            >
+            <a
+              class="flex items-center gap-3 p-3 rounded-md text-error"
+              href="logout.html"
+              ><span class="iconify" data-icon="mdi:logout-variant"></span
+              >Logout</a
+            >
+          </div>
+        </aside>
+      </div>
     </div>
 
-    <main>
+    <!-- ===== Mobile Dock ===== -->
+    <div
+      class="fixed bottom-4 left-1/2 -translate-x-1/2 md:hidden bg-base-200/70 backdrop-blur-lg shadow-xl rounded-2xl px-5 py-2 flex items-center gap-6 border border-base-300 z-50"
+    >
+      <button data-nav="categories" class="dockItem btn btn-ghost">
+        <span class="iconify text-2xl" data-icon="mdi:apps"></span>
+      </button>
+      <button data-nav="leaderboard" class="dockItem btn btn-ghost">
+        <span class="iconify text-2xl" data-icon="mdi:trophy"></span>
+      </button>
+      <button data-open-drawer class="dockItem btn btn-ghost">
+        <span class="iconify text-2xl" data-icon="mdi:menu"></span>
+      </button>
+      <button data-nav="dashboard" class="dockItem btn btn-ghost">
+        <span class="iconify text-2xl" data-icon="mdi:view-dashboard"></span>
+      </button>
+      <button data-nav="profile" class="dockItem btn btn-ghost">
+        <span class="iconify text-2xl" data-icon="mdi:account-circle"></span>
+      </button>
+    </div>
+
+    <main class="mt-20 pt-20">
       <!-- 🌟 Hero Section -->
       <section class="hero min-h-[50vh] bg-base-200 text-center px-4 sm:px-6">
         <div class="hero-content flex-col max-w-3xl mx-auto">
