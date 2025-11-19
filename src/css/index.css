@@ -116,7 +116,6 @@
 }
 
 .ultra-card {
-  @extends .glass-box;
   @apply rounded-2xl p-6 transition-transform;
 }
 
@@ -199,11 +198,11 @@
 
 /* Main */
 main {
-  @apply flex-grow p-4;
+  @apply grow p-4;
 }
 
 main h2 {
-  @apply text-xl font-bold mb-6 text-primary text-base-100;
+  @apply text-xl font-bold mb-6 text-primary;
 }
 
 /* Mobile view */
